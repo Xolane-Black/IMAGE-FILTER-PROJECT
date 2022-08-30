@@ -18,7 +18,11 @@ import { fileURLToPath } from 'url';
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
   app.get("/filteredimage", async (req: Request,res: Response) => {
+<<<<<<< HEAD
     const {image_url}: {image_url: string}= req.query;
+=======
+    const {image_url}: {image_url: string} = req.query;
+>>>>>>> 479628b382a0603d44987ddea605f9e7401ec85c
 
       if(!image_url) {
         res.status(400).send("Please insert a public image url");
