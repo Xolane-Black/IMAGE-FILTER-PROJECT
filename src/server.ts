@@ -18,13 +18,13 @@ import { fileURLToPath } from 'url';
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   // GET /filteredimage?image_url={{URL}}
   app.get("/filteredimage", async (req: Request,res: Response) => {
-    const {image_url}= req.query;
+    const {image_url}: {image_url: string}= req.query;
 
       if(!image_url) {
         res.status(400).send("Please insert a public image url");
       }
 
-      const FilteredImage = await filterImageFromURL(image_url);
+      const FilteredImage: string = await filterImageFromURL(image_url);
 
        res.status(200).sendFile(FilteredImage, () =>{
               deleteLocalFiles([FilteredImage]);
